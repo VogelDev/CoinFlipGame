@@ -40,7 +40,7 @@ public class Board implements Cloneable {
      */
     public boolean flip(int coin) throws IllegalArgumentException {
         if(coins[0].getFacing() && !coins[1].getFacing() && coins[2].getFacing()){
-            throw new IllegalArgumentException("Game Over");
+            throw new IllegalArgumentException("Game Over, start a new game.");
         }
         
         if (coin == 1) {
