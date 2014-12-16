@@ -1,5 +1,10 @@
 package com.onequest.coingame;
 
+/**
+ * Computer learning game, computer will learn the rules of the game.
+ * @author Rob Vogel
+ *
+ */
 public class Game {
     static Board board = new Board();
     static Move move;

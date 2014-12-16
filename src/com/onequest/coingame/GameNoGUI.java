@@ -2,6 +2,11 @@ package com.onequest.coingame;
 
 import java.util.Scanner;
 
+/**
+ * Single player game, text interface.
+ * @author Rob Vogel
+ *
+ */
 public class GameNoGUI {
     public static void main(String[] a) {
         boolean playing = true;

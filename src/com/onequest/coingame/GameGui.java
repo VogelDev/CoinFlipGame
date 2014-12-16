@@ -1,6 +1,5 @@
 package com.onequest.coingame;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,11 +14,12 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+/**
+ * GUI game, user can play or computer can play.
+ * @author Rob Vogel
+ *
+ */
 public class GameGui extends JFrame {
-
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private Board board;
@@ -97,7 +97,8 @@ public class GameGui extends JFrame {
                 try {
                     board.flip(2);
                     coin3.setText(board.get(2).orient);
-                } catch (Exception e) {
+                } catch (Exception e) 
+                {
                     JOptionPane.showMessageDialog(null, // position
                             e.getMessage(), // message
                             "Error", // title
@@ -110,6 +111,8 @@ public class GameGui extends JFrame {
         JButton btnCompPlay = new JButton("Computer Play");
         btnCompPlay.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                board = new Board();
+                update(coin1, coin2, coin3);
                 Board tmp;
                 while (!board.isOver()) {
                     int choice = player.takeTurn(board);
@@ -155,14 +158,15 @@ public class GameGui extends JFrame {
                     .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
                         .addComponent(coin1, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnNewGame))
-                    .addPreferredGap(ComponentPlacement.RELATED)
                     .addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-                        .addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-                            .addGap(6)
+                        .addGroup(gl_contentPane.createSequentialGroup()
+                            .addGap(12)
                             .addComponent(coin2, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(ComponentPlacement.UNRELATED)
-                            .addComponent(coin3, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
-                        .addComponent(btnCompPlay))
+                            .addPreferredGap(ComponentPlacement.RELATED)
+                            .addComponent(coin3, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                        .addGroup(gl_contentPane.createSequentialGroup()
+                            .addPreferredGap(ComponentPlacement.RELATED)
+                            .addComponent(btnCompPlay)))
                     .addContainerGap())
         );
         gl_contentPane.setVerticalGroup(
